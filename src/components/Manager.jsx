@@ -219,26 +219,31 @@ const Manager = () => {
           {passwordArray.length === 0 ? (
             <div>No Passwords to show</div>
           ) : (
-            <table className="table-auto w-full overflow-hidden rounded-md pb-4">
-              <thead className="bg-green-800 text-white">
-                <tr>
-                  <th className="py-2">Site</th>
-                  <th className="py-2">Username</th>
-                  <th className="py-2">Password</th>
-                  <th className="py-2">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="bg-green-50">
-                {passwordArray.map((item, index) => {
-                  return (
+            <div className="overflow-x-auto">
+              <table className="table-auto min-w-full overflow-hidden rounded-md pb-4">
+                <thead className="bg-green-800 text-white">
+                  <tr>
+                    <th className="py-2 px-4 text-sm md:text-base">Site</th>
+                    <th className="py-2 px-4 text-sm md:text-base">Username</th>
+                    <th className="py-2 px-4 text-sm md:text-base">Password</th>
+                    <th className="py-2 px-4 text-sm md:text-base">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-green-50">
+                  {passwordArray.map((item, index) => (
                     <tr key={index}>
-                      <td className="py-2 border border-white text-center">
-                        <div className="flex items-center justify-center ">
-                          <a href={item.site} target="_blank">
+                      <td className="py-2 px-4 border border-white text-center text-sm md:text-base">
+                        <div className="flex items-center justify-center">
+                          <a
+                            href={item.site}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="truncate"
+                          >
                             {item.site}
                           </a>
                           <div
-                            className="lordiconcopy size-7 cursor-pointer"
+                            className="lordiconcopy size-7 cursor-pointer ml-2"
                             onClick={() => {
                               copyText(item.site);
                             }}
@@ -256,11 +261,11 @@ const Manager = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="py-2 border border-white text-center">
-                        <div className="flex items-center justify-center ">
+                      <td className="py-2 px-4 border border-white text-center text-sm md:text-base">
+                        <div className="flex items-center justify-center">
                           <span>{item.username}</span>
                           <div
-                            className="lordiconcopy size-7 cursor-pointer"
+                            className="lordiconcopy size-7 cursor-pointer ml-2"
                             onClick={() => {
                               copyText(item.username);
                             }}
@@ -278,11 +283,11 @@ const Manager = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="py-2 border border-white text-center">
-                        <div className="flex items-center justify-center ">
+                      <td className="py-2 px-4 border border-white text-center text-sm md:text-base">
+                        <div className="flex items-center justify-center">
                           <span>{"*".repeat(item.password.length)}</span>
                           <div
-                            className="lordiconcopy size-7 cursor-pointer"
+                            className="lordiconcopy size-7 cursor-pointer ml-2"
                             onClick={() => {
                               copyText(item.password);
                             }}
@@ -300,37 +305,39 @@ const Manager = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="justify-center py-2 border border-white text-center">
-                        <span
-                          className="cursor-pointer mx-1"
-                          onClick={() => {
-                            editPass(item.id);
-                          }}
-                        >
-                          <lord-icon
-                            src="https://cdn.lordicon.com/gwlusjdu.json"
-                            trigger="hover"
-                            style={{ width: "25px", height: "25px" }}
-                          ></lord-icon>
-                        </span>
-                        <span
-                          className="cursor-pointer mx-1"
-                          onClick={() => {
-                            deletePass(item.id);
-                          }}
-                        >
-                          <lord-icon
-                            src="https://cdn.lordicon.com/skkahier.json"
-                            trigger="hover"
-                            style={{ width: "25px", height: "25px" }}
-                          ></lord-icon>
-                        </span>
+                      <td className="py-2 px-4 border border-white text-center text-sm md:text-base">
+                        <div className="flex justify-center">
+                          <span
+                            className="cursor-pointer mx-1"
+                            onClick={() => {
+                              editPass(item.id);
+                            }}
+                          >
+                            <lord-icon
+                              src="https://cdn.lordicon.com/gwlusjdu.json"
+                              trigger="hover"
+                              style={{ width: "25px", height: "25px" }}
+                            ></lord-icon>
+                          </span>
+                          <span
+                            className="cursor-pointer mx-1"
+                            onClick={() => {
+                              deletePass(item.id);
+                            }}
+                          >
+                            <lord-icon
+                              src="https://cdn.lordicon.com/skkahier.json"
+                              trigger="hover"
+                              style={{ width: "25px", height: "25px" }}
+                            ></lord-icon>
+                          </span>
+                        </div>
                       </td>
                     </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       </div>
