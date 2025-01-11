@@ -14,7 +14,7 @@ const Manager = () => {
     //   setPasswordArray(JSON.parse(passwords));
     // }
 
-    let req = await fetch("http://localhost:3000/");
+    let req = await fetch("https://save-pass-api.vercel.app/");
     let passwords = await req.json();
     console.log(passwords);
     setPasswordArray(passwords);
@@ -57,13 +57,13 @@ const Manager = () => {
       form.password.length > 3
     ) {
       setPasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
-      await fetch("http://localhost:3000/", {
+      await fetch("https://save-pass-api.vercel.app/", {
         method: "DELETE",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ id: form.id }),
       });
 
-      await fetch("http://localhost:3000/", {
+      await fetch("https://save-pass-api.vercel.app/", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ ...form, id: uuidv4() }),
@@ -104,7 +104,7 @@ const Manager = () => {
     // console.log(c);
     if (c) {
       setPasswordArray(passwordArray.filter((item) => item.id != id));
-      let res = await fetch("http://localhost:3000/", {
+      let res = await fetch("https://save-pass-api.vercel.app/", {
         method: "DELETE",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ id }),
