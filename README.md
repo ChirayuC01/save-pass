@@ -20,7 +20,8 @@
 
 ## Deployment
 
-The SavePass Website frontend is live and can be accessed here: [SavePass Live Demo](https://save-pass-gold.vercel.app/)
+- The SavePass Website frontend is live and can be accessed here: [SavePass Live Demo](https://save-pass-gold.vercel.app/)
+- The backend API is deployed separately and can be found here: [SavePass Backend API Repository](https://github.com/ChirayuC01/save-pass-api)
 
 ## Getting Started
 
